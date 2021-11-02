@@ -1,10 +1,14 @@
 using Microsoft.EntityFrameworkCore;
+using todo.Models;
 
-namespace todos
+namespace Todo
 {
-    public class todoContext: DbContext
+    public class TodoContext : DbContext
     {
-        public todosContext (DbContextOptions<todoContext> options)
-            : base(options) ;
+        public TodoContext (DbContextOptions<TodoContext> options)
+            : base(options)
+            {
+            }
+            public DbSet<Task> Task {get; set;}
     }
 }
