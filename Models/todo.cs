@@ -2,23 +2,29 @@ using System;
 
 namespace todo.Models
 {
-    public class Todo
+    public class Task
     {
         public int id {get; set;}
         public string task{get; set;}
 
         private bool _boolVal= false;
         public bool completed
-        {get;
+        {get
+            {
+                return completed; 
+            } 
         set
             {
                 _boolVal = value;
             }}
         
         private DateTimeOffset now = (DateTimeOffset)DateTime.UtcNow; 
-        public string date_added
+        public DateTime date_added
         {
-            get;
+            get
+                {
+                    return date_added;
+                }
             set
                 {
                     now = value;
