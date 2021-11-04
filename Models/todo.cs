@@ -1,36 +1,29 @@
 using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace todo.Models
 {
-    public class Task
+    [Index(nameof(id), IsUnique=true)]
+    public class TodoItem
     {
         public int id {get; set;}
         public string task{get; set;}
 
-        private bool _boolVal= false;
-        public bool completed
-        {get
-            {
-                return completed; 
-            } 
-        set
-            {
-                _boolVal = value;
-            }}
+        public bool completed{get;set;}=false;
         
-        private DateTimeOffset now = (DateTimeOffset)DateTime.UtcNow; 
-        public DateTime date_added
-        {
-            get
-                {
-                    return date_added;
-                }
-            set
-                {
-                    now = value;
-                }
-        }
+         public DateTime date_added
+            {
+                get
+                    {
+                        return this.dateCreated.HasValue
+                           ? this.dateCreated.Value
+                            : DateTime.Now;
+                    }
 
+                set { this.dateCreated = value; }
+            }
+
+        private DateTime? dateCreated = null;
         public string date_completed{get;set;}
     }
 }

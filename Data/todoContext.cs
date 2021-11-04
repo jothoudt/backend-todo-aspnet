@@ -10,6 +10,6 @@ namespace Todo
             : base(options)
             {
             }
-            public DbSet<Task> Task {get; set;}
+            public DbSet<TodoItem> Task {get; set;}
     }
 }
