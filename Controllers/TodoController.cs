@@ -21,14 +21,14 @@ namespace backend_todo_aspnet.Controllers
             _context = context;
         }
 
-        // GET: api/Todo
+        // GET: api/tasks
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItem()
         {
             return await _context.Task.ToListAsync();
         }
 
-        // GET: api/Todo/5
+        // GET: api/tasks/5
         [HttpGet("{id}")]
         public async Task<ActionResult<TodoItem>> GetTodoItem(int id)
         {
@@ -42,7 +42,7 @@ namespace backend_todo_aspnet.Controllers
             return todoItem;
         }
 
-        // PUT: api/Todo/5
+        // PUT: api/tasks/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTodoItem(int id, TodoItem todoItem)
@@ -73,7 +73,7 @@ namespace backend_todo_aspnet.Controllers
             return NoContent();
         }
 
-        // POST: api/Todo
+        // POST: api/tasks
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem task)
@@ -84,7 +84,7 @@ namespace backend_todo_aspnet.Controllers
             return CreatedAtAction("GetTodoItem", task);
         }
 
-        // DELETE: api/Todo/5
+        // DELETE: api/tasks/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTodoItem(int id)
         {

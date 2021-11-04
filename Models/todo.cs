@@ -11,19 +11,16 @@ namespace todo.Models
 
         public bool completed{get;set;}=false;
         
-         public DateTime date_added
-            {
-                get
-                    {
-                        return this.dateCreated.HasValue
-                           ? this.dateCreated.Value
-                            : DateTime.Now;
-                    }
-
-                set { this.dateCreated = value; }
+         public string date_added 
+            {get{
+                return this.dateCreated.ToString("MM/dd/yyyy");
+            }
+            set{
+                this.dateCreated.ToString("MM/dd/yyyy");
+            }
             }
 
-        private DateTime? dateCreated = null;
+        private DateTime dateCreated = DateTime.Now;
         public string date_completed{get;set;}
     }
 }
